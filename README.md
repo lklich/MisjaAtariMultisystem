@@ -6,7 +6,7 @@ Kryptonim akcji: Misja. Zadanie: zniszczenie podziemnej bazy wojskowej – umie�
 
 ## Jak to działa?
 
-Każda procedura oryginału ma swój odpowiednik w C++ (adres 6502 w komentarzu). Zmienne gry leżą pod tymi samymi adresami co na Atari, dlatego przebieg gry da się porównać z oryginałem bajt w bajt.
+Każda procedura oryginału ma swój odpowiednik w C++. Zmienne gry leżą pod tymi samymi adresami co na Atari, dlatego przebieg gry da się porównać z oryginałem bajt w bajt.
 
 > **Program nie zawiera żadnych danych oryginalnej gry** – grafiki, pomieszczeń, dźwięków ani tekstów. Dlatego przy pierwszym uruchomieniu trzeba wskazać obraz kasety oryginalnej Misji (`.cas`). Pamiętaj, że oryginalna gra jest chroniona prawem autorkim i należy wykorzystać oryginalny plik zgrany z kasety. Dane są sprawdzane sumą SHA-256 i zapisywane w katalogu użytkownika. Potem plik kasety nie jest już potrzebny.
 
