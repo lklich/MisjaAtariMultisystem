@@ -1,18 +1,32 @@
 //
 //  MisjaGame.cpp
 //  Misja (C++ / SDL3)
-//
-//  Przebieg gry ($7400-$7F5F): przygotowanie, główna pętla (co 2 ramki), przejścia między
-//  pomieszczeniami, rozpakowanie pomieszczenia, panel stanu (energia, czas, granaty,
-//  amunicja, wynik, mapa), obrażenia, przedmioty, koniec gry, zakończenie i DLI gry.
-//
-//  Ważniejsze komórki:
-//  $89 pomieszczenie (bity 4-7 wiersz, 0-3 kolumna)   $96 poprzednie pomieszczenie
-//  $B9/$BA pozycja gracza   $CB stan gracza   $D6 licznik ramek pętli
-//  $E4 energia   $E5 zmiana energii   $E6 czas ochronny po trafieniu   $E7 amunicja
-//  $E8 granaty   $E9 pojemniki   $EA czas (BCD)   $EC-$EE rekord   $EF-$F1 wynik (BCD)
+//  Gra Misja Atari XE. autor: Janusz Pelc, grafika: Janusz Pelc i Marek Siewior.
+//  autor konwersji: Leszek Klich 2026
+//  Uwaga - niniejsza gra nie zawiera żadnych danych oryginalnej gry – grafiki, pomieszczeń, dźwięków ani tekstów.
+//  Przy pierwszym uruchomieniu trzeba wskazać obraz z oryginalnej kasety jako plik .cas
+//  Po wczytaniu plik kasety nie jest wymagany.
+//  Licencja darmowa, ale pamiętaj, aby nigdy nie rozpowszechniać ninejszego silnika gry wraz z plikami .cas
+/***********************************************************************************************************************************/
+
+//  Przebieg gry ($7400-$7F5F): przygotowanie, główna pętla (co 2 ramki), przejścia między pomieszczeniami, rozpakowanie pomieszczenia, 
+//  panel stanu (energia, czas, granaty, amunicja, wynik, mapa), obrażenia, przedmioty, koniec gry, zakończenie i DLI gry.
+//  Najważniejsze komórki:
+//  $89 pomieszczenie (bity 4-7 wiersz, 0-3 kolumna)   
+//  $96 poprzednie pomieszczenie
+//  $B9/$BA pozycja gracza   
+//  $CB stan gracza   
+//  $D6 licznik ramek pętli
+//  $E4 energia   
+//  $E5 zmiana energii   
+//  $E6 czas ochronny po trafieniu   
+//  $E7 amunicja
+//  $E8 granaty   
+//  $E9 pojemniki   
+//  $EA czas (BCD)   
+//  $EC-$EE rekord   
+//  $EF-$F1 wynik (BCD)
 //  $F2 bit 7 = pokaz
-//
 
 #include "Misja.h"
 

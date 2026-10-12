@@ -1,13 +1,19 @@
 //
 //  NativeMenu.h
 //  Misja (C++ / SDL3)
-//
+//  Gra Misja Atari XE. autor: Janusz Pelc, grafika: Janusz Pelc i Marek Siewior.
+//  autor konwersji: Leszek Klich 2026
+//  Uwaga - niniejsza gra nie zawiera żadnych danych oryginalnej gry – grafiki, pomieszczeń, dźwięków ani tekstów.
+//  Przy pierwszym uruchomieniu trzeba wskazać obraz z oryginalnej kasety jako plik .cas
+//  Po wczytaniu plik kasety nie jest wymagany.
+//  Licencja darmowa, ale pamiętaj, aby nigdy nie rozpowszechniać ninejszego silnika gry wraz z plikami .cas
+/***********************************************************************************************************************************/
+
 //  Systemowe menu „Gra” – jak w wersji Swift:
 //    macOS:   menu na pasku u góry ekranu (NativeMenu_mac.mm)
 //    Windows: pasek menu w oknie (NativeMenu_win.cpp)
 //    Linux:   brak – zostaje menu w grze pod F1 (NativeMenu_none.cpp)
 //  Wybranie pozycji wysyła zdarzenie SDL (typ podany w install, user.code = Command).
-//
 
 #pragma once
 

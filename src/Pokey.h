@@ -1,12 +1,16 @@
 //
 //  Pokey.h
 //  Misja (C++ / SDL3)
-//
-//  Emulacja układu dźwiękowego POKEY (4 kanały, zegar 64 kHz, liczniki wielomianowe)
-//  oraz „głośnika” CONSOL (kliknięcia).
-//  Klasa tylko generuje próbki – odtwarzaniem zajmuje się warstwa SDL (wywołuje render()
-//  z wątku audio). Rejestry są chronione muteksem.
-//
+//  Gra Misja Atari XE. autor: Janusz Pelc, grafika: Janusz Pelc i Marek Siewior.
+//  autor konwersji: Leszek Klich 2026
+//  Uwaga - niniejsza gra nie zawiera żadnych danych oryginalnej gry – grafiki, pomieszczeń, dźwięków ani tekstów.
+//  Przy pierwszym uruchomieniu trzeba wskazać obraz z oryginalnej kasety jako plik .cas
+//  Po wczytaniu plik kasety nie jest wymagany.
+//  Licencja darmowa, ale pamiętaj, aby nigdy nie rozpowszechniać ninejszego silnika gry wraz z plikami .cas
+/***********************************************************************************************************************************/
+
+//  Emulacja układu dźwiękowego POKEY (4 kanały, zegar 64 kHz, liczniki wielomianowe) oraz „głośnika” CONSOL (kliknięcia).
+//  Klasa tylko generuje próbki – odtwarzaniem zajmuje się warstwa SDL (wywołuje render() z wątku audio). Rejestry są chronione muteksem.
 
 #pragma once
 

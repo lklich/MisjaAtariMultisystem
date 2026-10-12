@@ -1,12 +1,17 @@
 //
 //  MisjaRooms.cpp
 //  Misja (C++ / SDL3)
-//
-//  Elementy specjalne pomieszczeń ($9690-$9FFF): windy i szyby ($8D – rodzaj z tablicy
-//  $B100, $8F/$90/$91 – stan i położenie), przełączniki ($9E6C), migające ściany,
-//  zapadnie, przedmioty do zebrania, miejsca na pojemniki z uranem ($9C9E), zapamiętany
+//  Gra Misja Atari XE. autor: Janusz Pelc, grafika: Janusz Pelc i Marek Siewior.
+//  autor konwersji: Leszek Klich 2026
+//  Uwaga - niniejsza gra nie zawiera żadnych danych oryginalnej gry – grafiki, pomieszczeń, dźwięków ani tekstów.
+//  Przy pierwszym uruchomieniu trzeba wskazać obraz z oryginalnej kasety jako plik .cas
+//  Po wczytaniu plik kasety nie jest wymagany.
+//  Licencja darmowa, ale pamiętaj, aby nigdy nie rozpowszechniać ninejszego silnika gry wraz z plikami .cas
+/***********************************************************************************************************************************/
+
+//  Elementy specjalne pomieszczeń ($9690-$9FFF): windy i szyby ($8D – rodzaj z tablicy $B100, $8F/$90/$91 – stan i położenie), 
+//  przełączniki ($9E6C), migające ściany, zapadnie, przedmioty do zebrania, miejsca na pojemniki z uranem ($9C9E), zapamiętany
 //  stan zniszczeń w pomieszczeniach ($B000, $9D81). Rodzaj kafla to bity 4-7 tablicy $1200.
-//
 
 #include "Misja.h"
 

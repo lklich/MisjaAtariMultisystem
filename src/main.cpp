@@ -1,16 +1,20 @@
 //  Leszek Klich (2026)
 //  main.cpp
 //  Misja (C++ / SDL3)
-//
-//  Gra Misja (Atari XL/XE, LK Avalon 1990, autor: Janusz Pelc) przepisana na C++.
-//
+//  Gra Misja Atari XE. autor: Janusz Pelc, grafika: Janusz Pelc i Marek Siewior.
+//  autor konwersji: Leszek Klich 2026
+//  Uwaga - niniejsza gra nie zawiera żadnych danych oryginalnej gry – grafiki, pomieszczeń, dźwięków ani tekstów.
+//  Przy pierwszym uruchomieniu trzeba wskazać obraz z oryginalnej kasety jako plik .cas
+//  Po wczytaniu plik kasety nie jest wymagany.
+//  Licencja darmowa, ale pamiętaj, aby nigdy nie rozpowszechniać ninejszego silnika gry wraz z plikami .cas
+/***********************************************************************************************************************************/
+
 //  Uruchomienie bez parametrów otwiera okno gry. Parametry dla testów:
 //    --tape plik.cas               dane z pliku kasety zamiast z pamięci podręcznej
 //    --headless N plik.png [skrypt]  N ramek bez okna i zapis ekranu, skrypt: "ramka:klawisz:0|1,..."
 //    --trace N plik.bin [skrypt]   N ramek bez okna; skrót pamięci RAM po każdej ramce (do porównań
 //                                  z oryginałem uruchomionym w emulatorze)
 //    --shots katalog               zrzuty kolejnych ekranów interfejsu (z oknem) i wyjście
-//
 
 #include "App.h"
 #include "OriginalTape.h"

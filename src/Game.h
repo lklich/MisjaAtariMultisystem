@@ -1,10 +1,14 @@
 //
 //  Game.h
 //  Misja (C++ / SDL3)
-//
-//  Gra jako całość dla warstwy okna: „sprzęt” Atari (Machine), przepisany kod gry (Misja),
-//  dźwięk POKEY, joystick/konsola/klawiatura Atari oraz zapis i wczytanie stanu gry.
-//
+//  Gra Misja Atari XE. autor: Janusz Pelc, grafika: Janusz Pelc i Marek Siewior.
+//  autor konwersji: Leszek Klich 2026
+//  Uwaga - niniejsza gra nie zawiera żadnych danych oryginalnej gry – grafiki, pomieszczeń, dźwięków ani tekstów.
+//  Przy pierwszym uruchomieniu trzeba wskazać obraz z oryginalnej kasety jako plik .cas
+//  Po wczytaniu plik kasety nie jest wymagany.
+//  Licencja darmowa, ale pamiętaj, aby nigdy nie rozpowszechniać ninejszego silnika gry wraz z plikami .cas
+/***********************************************************************************************************************************/
+//  Gra dla warstwy okna: sprzęt Atari (Machine), przepisany kod gry (Misja), dźwięk POKEY, joystick/konsola/klawiatura Atari oraz zapis i wczytanie stanu gry.
 
 #pragma once
 

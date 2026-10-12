@@ -2,14 +2,13 @@
 //  Misja.h
 //  Misja (C++ / SDL3)
 //
-//  Gra Misja (LK Avalon 1990, autor: Janusz Pelc) przepisana z kodu 6502 na C++.
-//  Każda procedura odpowiada procedurze oryginału (adres w komentarzu). Zmienne gry
-//  zostały w pamięci Atari pod tymi samymi adresami (Machine::m), dzięki czemu stan gry
-//  można porównywać z oryginałem bajt w bajt (tryb --selftest).
-//
-//  Kod gry działa w wątku Machine i czeka na sprzęt tak jak na Atari (Machine::waitFrame,
-//  waitVcount). Przerwania DLI i VBI wywołuje Machine.
-//
+//  Gra Misja Atari XE. autor: Janusz Pelc, grafika: Janusz Pelc i Marek Siewior.
+//  autor konwersji: Leszek Klich 2026
+//  Uwaga - niniejsza gra nie zawiera żadnych danych oryginalnej gry – grafiki, pomieszczeń, dźwięków ani tekstów.
+//  Przy pierwszym uruchomieniu trzeba wskazać obraz z oryginalnej kasety jako plik .cas
+//  Po wczytaniu plik kasety nie jest wymagany.
+//  Licencja darmowa, ale pamiętaj, aby nigdy nie rozpowszechniać ninejszego silnika gry wraz z plikami .cas
+/***********************************************************************************************************************************/
 
 #pragma once
 

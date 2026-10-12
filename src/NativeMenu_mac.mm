@@ -1,9 +1,14 @@
 //
 //  NativeMenu_mac.mm
 //  Misja (C++ / SDL3)
-//
-//  Menu „Gra” na pasku menu macOS (jak CommandMenu("Gra") w wersji SwiftUI).
-//
+//  Gra Misja Atari XE. autor: Janusz Pelc, grafika: Janusz Pelc i Marek Siewior.
+//  autor konwersji: Leszek Klich 2026
+//  Uwaga - niniejsza gra nie zawiera żadnych danych oryginalnej gry – grafiki, pomieszczeń, dźwięków ani tekstów.
+//  Przy pierwszym uruchomieniu trzeba wskazać obraz z oryginalnej kasety jako plik .cas
+//  Po wczytaniu plik kasety nie jest wymagany.
+//  Licencja darmowa, ale pamiętaj, aby nigdy nie rozpowszechniać ninejszego silnika gry wraz z plikami .cas
+/***********************************************************************************************************************************/
+//  Menu gry na pasku menu macOS
 
 #import <Cocoa/Cocoa.h>
 

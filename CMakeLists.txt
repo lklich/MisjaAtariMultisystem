@@ -1,7 +1,28 @@
-# Misja – gra LK Avalon (1990, Janusz Pelc) przepisana na C++ i SDL3 (macOS, Windows, Linux)
+# Misja – gra przepisana z Atari XE na C++ i SDL3 (macOS, Windows, Linux)
 cmake_minimum_required(VERSION 3.20)
 
+option(MISJA_SYSTEM_SDL "Użyj SDL3 zainstalowanego w systemie" OFF)
+
+# macOS: minimalna wersja systemu (jak w wersji Swift) i architektury. Musi być ustawione
+# przed project(). Domyślnie aplikacja uniwersalna (Apple Silicon + Intel). SDL3 z Homebrew
+# jest tylko dla procesora tego Maca, więc z MISJA_SYSTEM_SDL=ON domyślna jest jedna
+# architektura. Wybór ręczny: -DCMAKE_OSX_ARCHITECTURES=arm64 (x86_64, "arm64;x86_64")
+if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Darwin")
+    set(CMAKE_OSX_DEPLOYMENT_TARGET "11.0" CACHE STRING "Minimalna wersja macOS")
+    if(MISJA_SYSTEM_SDL)
+        set(CMAKE_OSX_ARCHITECTURES "${CMAKE_HOST_SYSTEM_PROCESSOR}" CACHE STRING "Architektury macOS")
+    else()
+        set(CMAKE_OSX_ARCHITECTURES "arm64;x86_64" CACHE STRING "Architektury macOS")
+    endif()
+endif()
+
 project(Misja VERSION 1.0.0 LANGUAGES C CXX)
+
+# macOS: Objective-C(++) musi być włączone w głównym zakresie przed pobraniem SDL3
+# (SDL włącza OBJC we własnym podkatalogu, a NativeMenu_mac.mm wymaga OBJCXX)
+if(APPLE)
+    enable_language(OBJC OBJCXX)
+endif()
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -11,9 +32,6 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     set(CMAKE_BUILD_TYPE Release CACHE STRING "Typ budowania" FORCE)
 endif()
 
-# macOS: minimalna wersja systemu (jak w wersji Swift).
-# Aplikacja uniwersalna (Apple Silicon + Intel): -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64"
-set(CMAKE_OSX_DEPLOYMENT_TARGET "11.0" CACHE STRING "Minimalna wersja macOS")
 
 # Windows (MSVC): statyczne CRT dla programu i SDL – Misja.exe działa bez Visual C++ Redistributable
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
@@ -22,7 +40,6 @@ set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 # Domyślnie SDL3 jest pobierane z GitHuba i linkowane statycznie (jeden plik programu,
 # bez dodatkowych bibliotek). -DMISJA_SYSTEM_SDL=ON używa SDL3 zainstalowanego w systemie
 # (np. brew install sdl3, vcpkg install sdl3).
-option(MISJA_SYSTEM_SDL "Użyj SDL3 zainstalowanego w systemie" OFF)
 set(MISJA_SDL_TAG "release-3.4.18" CACHE STRING "Wersja SDL3 pobierana z GitHuba")
 
 if(MISJA_SYSTEM_SDL)
@@ -69,7 +86,6 @@ set(MISJA_SOURCES
 find_package(Threads REQUIRED)
 
 if(APPLE)
-    enable_language(OBJCXX)
     list(APPEND MISJA_SOURCES src/NativeMenu_mac.mm)
 elseif(WIN32)
     list(APPEND MISJA_SOURCES src/NativeMenu_win.cpp)
@@ -95,7 +111,15 @@ else()
     add_executable(Misja ${MISJA_SOURCES})
 endif()
 
-target_link_libraries(Misja PRIVATE SDL3::SDL3 Threads::Threads)
+#target_link_libraries(Misja PRIVATE SDL3::SDL3 Threads::Threads)
+
+if(MISJA_SYSTEM_SDL)
+    target_link_libraries(Misja PRIVATE SDL3::SDL3 Threads::Threads)
+else()
+    target_link_libraries(Misja PRIVATE SDL3::SDL3-static Threads::Threads)
+endif()
+
+
 if(APPLE)
     target_link_libraries(Misja PRIVATE "-framework Cocoa")
 endif()

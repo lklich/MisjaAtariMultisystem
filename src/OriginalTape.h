@@ -1,14 +1,19 @@
 //
 //  OriginalTape.h
 //  Misja (C++ / SDL3)
-//
+//  Gra Misja Atari XE. autor: Janusz Pelc, grafika: Janusz Pelc i Marek Siewior.
+//  autor konwersji: Leszek Klich 2026
+//  Uwaga - niniejsza gra nie zawiera żadnych danych oryginalnej gry – grafiki, pomieszczeń, dźwięków ani tekstów.
+//  Przy pierwszym uruchomieniu trzeba wskazać obraz z oryginalnej kasety jako plik .cas
+//  Po wczytaniu plik kasety nie jest wymagany.
+//  Licencja darmowa, ale pamiętaj, aby nigdy nie rozpowszechniać ninejszego silnika gry wraz z plikami .cas
+/***********************************************************************************************************************************/
+
 //  Odczyt danych z kasety oryginalnej gry Misja (LK Avalon 1990) w formacie .cas.
 //
-//  Program nie zawiera żadnych danych oryginału. Przy pierwszym uruchomieniu gracz wskazuje
-//  plik .cas, a ten moduł odtwarza z niego obraz pamięci Atari $0000-$9FFF – taki, jaki
-//  zostawia program ładujący z kasety.
-//
-//  Budowa taśmy:
+//  Program nie zawiera żadnych danych oryginału. Przy pierwszym uruchomieniu gracz wskazuje plik .cas, a ten moduł odtwarza 
+//  z niego obraz pamięci Atari $0000-$9FFF – taki, jaki zostawia program ładujący z kasety.
+//  Jak zbudowany jest zapis taśmy magnetofonowej:
 //  • 3 rekordy 600 bodów w standardowym formacie Atari (55 55 FC + 128 bajtów + suma):
 //    blok startowy ładowany pod $0480 (nagłówek: flagi, 2 rekordy, adres $0480, init),
 //    trzeci rekord program startowy kopiuje z bufora kasety $0400 do $0580,
@@ -16,9 +21,7 @@
 //    ładowane kolejno od $1200 do $9FFF. Bajt kontrolny to XOR wszystkich dotychczasowych
 //    danych z wartością początkową $55 (narastająco przez całą taśmę),
 //  • start programu: JMP $6800.
-//
 //  Wynik jest weryfikowany sumą SHA-256, więc działa każdy wierny zrzut tej kasety.
-//
 
 #pragma once
 

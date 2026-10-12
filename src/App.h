@@ -1,10 +1,15 @@
-//
+//  Gra Misja Atari XE. autor: Janusz Pelc, grafika: Janusz Pelc i Marek Siewior.
+//  autor konwersji: Leszek Klich 2026
+//  Uwaga - niniejsza gra nie zawiera żadnych danych oryginalnej gry – grafiki, pomieszczeń, dźwięków ani tekstów.
+//  Przy pierwszym uruchomieniu trzeba wskazać obraz z oryginalnej kasety jako plik .cas
+//  Po wczytaniu plik kasety nie jest wymagany.
+//  Licencja darmowa, ale pamiętaj, aby nigdy nie rozpowszechniać ninejszego silnika gry wraz z plikami .cas
+/***********************************************************************************************************************************/
+
 //  App.h
 //  Misja (C++ / SDL3)
-//
-//  Warstwa systemowa: okno, obraz, dźwięk, klawiatura/gamepad, przeciąganie plików,
-//  okna wyboru plików oraz menu rysowane w grze.
-//
+//  autor konwersji: Leszek Klich 2026
+//  Warstwa systemowa: okno, obraz, dźwięk, klawiatura/gamepad, przeciąganie plików, okna wyboru plików oraz menu rysowane w grze.
 
 #pragma once
 

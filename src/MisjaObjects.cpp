@@ -1,15 +1,23 @@
 //
 //  MisjaObjects.cpp
 //  Misja (C++ / SDL3)
-//
-//  Obiekty w pomieszczeniu ($8BF0-$94A3): 8 miejsc, każde z kodem ($98+X), klatką
-//  i kierunkiem ($A0+X), kolumną ($A8+X) i wierszem w punktach ($B0+X). Kod wybiera
-//  procedurę (tablica $94DB). Obiekty są rysowane znakami $E0-$EF składanymi z grafiki
+//  Gra Misja Atari XE. autor: Janusz Pelc, grafika: Janusz Pelc i Marek Siewior.
+//  autor konwersji: Leszek Klich 2026
+//  Uwaga - niniejsza gra nie zawiera żadnych danych oryginalnej gry – grafiki, pomieszczeń, dźwięków ani tekstów.
+//  Przy pierwszym uruchomieniu trzeba wskazać obraz z oryginalnej kasety jako plik .cas
+//  Po wczytaniu plik kasety nie jest wymagany.
+//  Licencja darmowa, ale pamiętaj, aby nigdy nie rozpowszechniać ninejszego silnika gry wraz z plikami .cas
+/***********************************************************************************************************************************/
+
+//  Obiekty w pomieszczeniu ($8BF0-$94A3): 8 miejsc, każde z kodem ($98+X), klatką i kierunkiem ($A0+X), kolumną ($A8+X) i wierszem 
+//  w punktach ($B0+X). Kod wybiera procedurę (tablica $94DB). Obiekty są rysowane znakami $E0-$EF składanymi z grafiki
 //  ($4000), maski ($B200) i tła spod spodu (bufory $AD00/$AD80 -> znaki $5300/$5700).
-//
-//  $D7 bieżący obiekt   $8A numer znaku (2 × $D7)   $B8 bit 7 = bez rysowania (nadrabianie)
-//  $9544 opóźnienia   $954C kafel źródłowy działka   $9554-$9594 zapamiętany stan pomieszczeń
-//
+//  $D7 bieżący obiekt   
+//  $8A numer znaku (2 × $D7)   
+//  $B8 bit 7 = bez rysowania (nadrabianie)
+//  $9544 opóźnienia   
+//  $954C kafel źródłowy działka   
+//  $9554-$9594 zapamiętany stan pomieszczeń
 
 #include "Misja.h"
 

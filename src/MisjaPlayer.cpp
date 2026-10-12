@@ -1,14 +1,24 @@
 //
 //  MisjaPlayer.cpp
 //  Misja (C++ / SDL3)
-//
-//  Gracz ($7F6C-$8596): automat stanów ($CB, skok przez tablicę $859D), ruch, skoki,
-//  spadanie, drabiny, rzut granatem, sprawdzanie kafli pod i obok postaci, rysowanie
-//  postaci w pamięci graczy 0/1 ($BC00/$BD00).
-//
-//  $B9/$BA x/y   $BB poprzednie y   $CC kierunek ruchu (-1/0/1)   $CD licznik skoku/spadania
-//  $CE/$CF klatka animacji (baza/numer)   $D4/$D5 blokada przycisku   $D0-$D3 granat
-//
+//  Gra Misja Atari XE. autor: Janusz Pelc, grafika: Janusz Pelc i Marek Siewior.
+//  autor konwersji: Leszek Klich 2026
+//  Uwaga - niniejsza gra nie zawiera żadnych danych oryginalnej gry – grafiki, pomieszczeń, dźwięków ani tekstów.
+//  Przy pierwszym uruchomieniu trzeba wskazać obraz z oryginalnej kasety jako plik .cas
+//  Po wczytaniu plik kasety nie jest wymagany.
+//  Licencja darmowa, ale pamiętaj, aby nigdy nie rozpowszechniać ninejszego silnika gry wraz z plikami .cas
+/***********************************************************************************************************************************/
+
+//  Gracz ($7F6C-$8596): automat stanów ($CB, skok przez tablicę $859D), ruch, skoki, spadanie, drabiny, rzut granatem, 
+//  sprawdzanie kafli pod i obok postaci, rysowanie postaci w pamięci graczy 0/1 ($BC00/$BD00).
+//  $B9/$BA x/y   
+//  $BB poprzednie y   
+//  $CC kierunek ruchu (-1/0/1)   
+//  $CD licznik skoku/spadania
+//  $CE/$CF klatka animacji (baza/numer)   
+//  $D4/$D5 blokada przycisku   
+//  $D0-$D3 granat
+
 
 #include "Misja.h"
 

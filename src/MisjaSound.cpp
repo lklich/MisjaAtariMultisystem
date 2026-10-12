@@ -1,14 +1,18 @@
 //
 //  MisjaSound.cpp
 //  Misja (C++ / SDL3)
-//
-//  Dźwięk ($7000-$7152): przydział efektów do 4 kanałów POKEY i odtwarzanie ich
-//  w przerwaniu VBI (tablice głośności i częstotliwości $7173/$7273).
-//
+//  Gra Misja Atari XE. autor: Janusz Pelc, grafika: Janusz Pelc i Marek Siewior.
+//  autor konwersji: Leszek Klich 2026
+//  Uwaga - niniejsza gra nie zawiera żadnych danych oryginalnej gry – grafiki, pomieszczeń, dźwięków ani tekstów.
+//  Przy pierwszym uruchomieniu trzeba wskazać obraz z oryginalnej kasety jako plik .cas
+//  Po wczytaniu plik kasety nie jest wymagany.
+//  Licencja darmowa, ale pamiętaj, aby nigdy nie rozpowszechniać ninejszego silnika gry wraz z plikami .cas
+/***********************************************************************************************************************************/
+
+//  Dźwięk ($7000-$7152): przydział efektów do 4 kanałów POKEY i odtwarzanie ich  w przerwaniu VBI (tablice głośności i częstotliwości $7173/$7273).
 //  $7157+X  numer efektu (bity 4-7) i głośność / krok (bity 0-3)
 //  $715B+X  licznik ramek do następnego kroku
 //  $715F+X  długość kroku (bity 0-3), bit 7 = efekt zapętlony
-//
 
 #include "Misja.h"
 

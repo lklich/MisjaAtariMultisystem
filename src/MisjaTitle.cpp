@@ -1,10 +1,16 @@
 //
 //  MisjaTitle.cpp
 //  Misja (C++ / SDL3)
-//
+//  Gra Misja Atari XE. autor: Janusz Pelc, grafika: Janusz Pelc i Marek Siewior.
+//  autor konwersji: Leszek Klich 2026
+//  Uwaga - niniejsza gra nie zawiera żadnych danych oryginalnej gry – grafiki, pomieszczeń, dźwięków ani tekstów.
+//  Przy pierwszym uruchomieniu trzeba wskazać obraz z oryginalnej kasety jako plik .cas
+//  Po wczytaniu plik kasety nie jest wymagany.
+//  Licencja darmowa, ale pamiętaj, aby nigdy nie rozpowszechniać ninejszego silnika gry wraz z plikami .cas
+/***********************************************************************************************************************************/
+
 //  Ekran tytułowy ($6878-$6BDC): strony tekstu z rozjaśnianiem i ściemnianiem kolorów,
 //  oczekiwanie na START/fire, sekretne hasło, wynik rekordowy, strony końca gry.
-//
 
 #include "Misja.h"
 

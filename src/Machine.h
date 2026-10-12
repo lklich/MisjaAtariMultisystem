@@ -1,18 +1,21 @@
 //
 //  Machine.h
 //  Misja (C++ / SDL3)
-//
-//  „Sprzęt” Atari, na którym działa przepisany kod Misji: pamięć RAM, ANTIC (lista
-//  wyświetlania, tryby znakowe i graficzne), GTIA (gracze i pociski, priorytety, kolizje),
-//  rejestry POKEY oraz to, co gra bierze z systemu operacyjnego Atari (przerwanie VBI:
-//  zegar RTCLOK, liczniki CDTMV, rejestry-cienie kolorów, klawiatura, BREAK).
-//
-//  Kod gry nie jest emulowany – to zwykły C++ (Misja*.cpp). Tu jest tylko to, co na Atari
-//  robi sprzęt i ROM. Wszystko liczone w liniach obrazu PAL: 312 linii na ramkę, 50 Hz.
-//
-//  Kod gry działa jak na Atari jako jeden ciąg instrukcji z oczekiwaniem na sprzęt
-//  (np. na zmianę zegara albo na linię obrazu). Dlatego wykonuje się w osobnym wątku,
-//  który przekazuje sterowanie tam i z powrotem – w danej chwili pracuje zawsze tylko
+//  Gra Misja Atari XE. autor: Janusz Pelc, grafika: Janusz Pelc i Marek Siewior.
+//  autor konwersji: Leszek Klich 2026
+//  Uwaga - niniejsza gra nie zawiera żadnych danych oryginalnej gry – grafiki, pomieszczeń, dźwięków ani tekstów.
+//  Przy pierwszym uruchomieniu trzeba wskazać obraz z oryginalnej kasety jako plik .cas
+//  Po wczytaniu plik kasety nie jest wymagany.
+//  Licencja darmowa, ale pamiętaj, aby nigdy nie rozpowszechniać ninejszego silnika gry wraz z plikami .cas
+/***********************************************************************************************************************************/
+
+//  Atari, na którym działa przepisany kod Misji: pamięć RAM, ANTIC (lista wyświetlania, tryby znakowe i graficzne), 
+//  GTIA (gracze i pociski, priorytety, kolizje), rejestry POKEY oraz to, co gra bierze z systemu operacyjnego Atari 
+//  (przerwanie VBI: zegar RTCLOK, liczniki CDTMV, rejestry-cienie kolorów, klawiatura, BREAK).
+//  Kod gry nie jest emulowany – to zwykły C++ (Misja*.cpp). Tu jest tylko to, co na Atari robi sprzęt i ROM. 
+//  Wszystko liczone w liniach obrazu PAL: 312 linii na ramkę, 50 Hz.
+//  Kod działa jak na Atari - jako jeden ciąg instrukcji z oczekiwaniem na sprzęt (np. na zmianę zegara albo na linię obrazu). 
+//  Dlatego wykonuje się w osobnym wątku, który przekazuje sterowanie tam i z powrotem – w danej chwili pracuje zawsze tylko
 //  jedna strona, więc przebieg jest w pełni powtarzalny.
 //
 

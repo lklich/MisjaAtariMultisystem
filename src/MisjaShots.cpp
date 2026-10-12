@@ -1,18 +1,21 @@
 //
 //  MisjaShots.cpp
 //  Misja (C++ / SDL3)
-//
+//  Gra Misja Atari XE. autor: Janusz Pelc, grafika: Janusz Pelc i Marek Siewior.
+//  autor konwersji: Leszek Klich 2026
+//  Uwaga - niniejsza gra nie zawiera żadnych danych oryginalnej gry – grafiki, pomieszczeń, dźwięków ani tekstów.
+//  Przy pierwszym uruchomieniu trzeba wskazać obraz z oryginalnej kasety jako plik .cas
+//  Po wczytaniu plik kasety nie jest wymagany.
+//  Licencja darmowa, ale pamiętaj, aby nigdy nie rozpowszechniać ninejszego silnika gry wraz z plikami .cas
+/***********************************************************************************************************************************/
+
 //  Granat, pociski gracza i odłamki ($86F0-$8BEF).
-//
-//  Granat: $C8/$C9 x/y, $CA poprzednie y, $D0 faza (0 brak, 1 w górę, 2 w dół, 3 wybuch),
-//          $D1 prędkość, $D2 klatka wybuchu, $D3 kierunek (gracze 2 i 3, $BE00/$BF00).
+//  Granat: $C8/$C9 x/y, $CA poprzednie y, $D0 faza (0 brak, 1 w górę, 2 w dół, 3 wybuch), $D1 prędkość, $D2 klatka wybuchu, 
+//  $D3 kierunek (gracze 2 i 3, $BE00/$BF00).
 //  Pociski: $BC-$BF x, $C0-$C3 y, $C4-$C7 krok (0 = brak) – pociski w pamięci $BB00.
 //  Odłamki (8): $8892 x, $889A y, $88A2 rodzaj (0 = brak), $88AA czas lotu;
-//          rysowane jako znaki $D8-$DF w ekranie.
-//
-//  Przeniesienie (C) po $88B2 trafia do głównej pętli (ADC w pokazie), dlatego te
-//  procedury ustawiają c_ tak jak procesor.
-//
+//  rysowane jako znaki $D8-$DF w ekranie.
+//  Przeniesienie (C) po $88B2 trafia do głównej pętli (ADC w pokazie), dlatego te procedury ustawiają c_ tak jak procesor.
 
 #include "Misja.h"
 
